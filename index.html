@@ -910,63 +910,65 @@ add_filter('woocommerce_checkout',
       </div>
 
       <form
-  class="contact-form reveal"
-  name="contact"
-  method="POST"
-  data-netlify="true"
->
-
-  <!-- campo nascosto richiesto -->
-  <input type="hidden" name="form-name" value="contact">
-
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">Nome</label>
-      <input
-        class="form-input"
-        type="text"
-        name="name"
-        placeholder="Mario Rossi"
-        required
+        class="contact-form reveal"
+        name="contact"
+        method="POST"
+        action="/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
       >
-    </div>
 
-    <div class="form-group">
-      <label class="form-label">Email</label>
-      <input
-        class="form-input"
-        type="email"
-        name="email"
-        placeholder="mario@azienda.it"
-        required
-      >
-    </div>
-  </div>
+        <!-- campo nascosto richiesto -->
+        <input type="hidden" name="form-name" value="contact">
 
-  <div class="form-group">
-    <label class="form-label">Oggetto</label>
-    <input
-      class="form-input"
-      type="text"
-      name="subject"
-      placeholder="Proposta collaborazione"
-    >
-  </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nome</label>
+            <input
+              class="form-input"
+              type="text"
+              name="name"
+              placeholder="Mario Rossi"
+              required
+            >
+          </div>
 
-  <div class="form-group">
-    <label class="form-label">Messaggio</label>
-    <textarea
-      class="form-textarea"
-      name="message"
-      placeholder="Ciao Alessandro, ho un progetto interessante..."
-      required
-    ></textarea>
-  </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input
+              class="form-input"
+              type="email"
+              name="email"
+              placeholder="mario@azienda.it"
+              required
+            >
+          </div>
+        </div>
 
-  <button class="form-submit" type="submit">
-    Invia messaggio →
-  </button>
-</form>
+        <div class="form-group">
+          <label class="form-label">Oggetto</label>
+          <input
+            class="form-input"
+            type="text"
+            name="subject"
+            placeholder="Proposta collaborazione"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Messaggio</label>
+          <textarea
+            class="form-textarea"
+            name="message"
+            placeholder="Ciao Alessandro, ho un progetto interessante..."
+            required
+          ></textarea>
+        </div>
+
+        <button class="form-submit" type="submit">
+          Invia messaggio →
+        </button>
+      </form>
     </div>
   </section>
 
