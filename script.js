@@ -208,14 +208,38 @@ langBars.forEach(b => barObserver.observe(b));
 
 
 
-/* ---- FORM SUBMIT FX ---- */
-document.querySelector('.form-submit').addEventListener('click', function() {
-  this.textContent = '✓ Inviato!';
-  this.style.background = '#00ffb4';
-  setTimeout(() => {
-    this.textContent = 'Invia messaggio →';
-    this.style.background = '';
-  }, 2000);
+/* ---- NETLIFY FORM AJAX ---- */
+const form = document.querySelector('.contact-form');
+const submitBtn = document.querySelector('.form-submit');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  try {
+    await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    submitBtn.textContent = '✓ Inviato!';
+    submitBtn.style.background = '#00ffb4';
+
+    form.reset();
+
+    setTimeout(() => {
+      submitBtn.textContent = 'Invia messaggio →';
+      submitBtn.style.background = '';
+    }, 2500);
+
+  } catch (err) {
+    submitBtn.textContent = 'Errore!';
+    submitBtn.style.background = '#ff4d4d';
+  }
 });
 
 /* ---- BACK TO TOP LOGIC ---- */
