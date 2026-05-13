@@ -208,7 +208,7 @@ langBars.forEach(b => barObserver.observe(b));
 
 
 
-/* ---- NETLIFY FORM AJAX ---- */
+/* ---- FORM SUBMIT FX ---- */
 const form = document.querySelector('.contact-form');
 const submitBtn = document.querySelector('.form-submit');
 
@@ -218,10 +218,10 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData(form);
 
   try {
-    await fetch("/", {
-      method: "POST",
+    await fetch('/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams(formData).toString(),
     });
@@ -234,11 +234,10 @@ form.addEventListener('submit', async (e) => {
     setTimeout(() => {
       submitBtn.textContent = 'Invia messaggio →';
       submitBtn.style.background = '';
-    }, 2500);
+    }, 2000);
 
   } catch (err) {
     submitBtn.textContent = 'Errore!';
-    submitBtn.style.background = '#ff4d4d';
   }
 });
 
